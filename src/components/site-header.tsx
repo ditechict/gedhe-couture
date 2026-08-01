@@ -56,7 +56,7 @@ export function SiteHeader() {
           aria-expanded={open}
           className="rounded-md p-2 text-foreground md:hidden"
         >
-          {open ? <Menu className="size-5" /> : <Menu className="size-5" />}
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
@@ -68,10 +68,9 @@ export function SiteHeader() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-b border-border py-3 text-base font-medium text-foreground last:border-0"
+                className="border-b border-border py-3 text-base font-medium text-foreground"
               >
                 {item.label}
-                <X className="size-4 rotate-45 text-muted-foreground" aria-hidden />
               </Link>
             ))}
             <div className="py-3">
