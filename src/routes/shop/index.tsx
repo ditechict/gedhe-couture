@@ -6,7 +6,7 @@ type Search = { category?: Category };
 
 export const Route = createFileRoute("/shop/")({
   validateSearch: (search: Record<string, unknown>): Search => {
-    const raw = search.category;
+    const raw = search["category"];
     const valid = categories.some((c) => c.id === raw);
     return valid ? { category: raw as Category } : {};
   },
