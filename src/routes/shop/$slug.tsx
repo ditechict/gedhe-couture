@@ -37,7 +37,7 @@ export const Route = createFileRoute("/shop/$slug")({
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
-  const options = product.variants ?? [product.detail];
+  const options: string[] = product.variants ?? [product.detail];
   const [variant, setVariant] = useState(options[0]!);
   const message = orderMessage({
     name: product.name,
