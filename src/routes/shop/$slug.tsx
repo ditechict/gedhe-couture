@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Truck, Clock } from "lucide-react";
-import { categoryLabel, getProduct } from "@/data/products";
+import { categoryLabel, getProduct, variantLabel } from "@/data/products";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
-import { formatNaira, site } from "@/lib/site";
+import { formatNaira, orderMessage, site } from "@/lib/site";
+
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
