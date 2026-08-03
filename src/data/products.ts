@@ -13,6 +13,8 @@ export type Product = {
   /** Yardage for fabric, size for ready-to-wear, condition note for thrift. */
   detail: string;
   description: string;
+  /** Selectable options (yardage, size, or single-piece note). */
+  variants?: string[];
   inStock: boolean;
 };
 
@@ -56,6 +58,7 @@ export const products: Product[] = [
     detail: "6 yards",
     description:
       "Deep emerald ground with gold and magenta blooms. Soft hand, holds a pleat well — good for wrap skirts and gowns.",
+    variants: ["2 yards", "4 yards", "6 yards"],
     inStock: true,
   },
   {
@@ -67,6 +70,7 @@ export const products: Product[] = [
     detail: "6 yards",
     description:
       "Warm marigold with navy spirals. A loud print that photographs beautifully in daylight.",
+    variants: ["2 yards", "4 yards", "6 yards"],
     inStock: true,
   },
   {
@@ -78,6 +82,7 @@ export const products: Product[] = [
     detail: "6 yards",
     description:
       "Classic indigo medallion repeat. Versatile enough for men's shirts and women's two-pieces alike.",
+    variants: ["2 yards", "4 yards", "6 yards"],
     inStock: true,
   },
   {
@@ -89,6 +94,7 @@ export const products: Product[] = [
     detail: "Sizes S – L",
     description:
       "Flutter-sleeve top with a matching relaxed short. Fully lined at the bodice, made in-house.",
+    variants: ["S", "M", "L"],
     inStock: true,
   },
   {
@@ -100,6 +106,7 @@ export const products: Product[] = [
     detail: "Sizes S – XL",
     description:
       "Everyday flutter-sleeve top in a small-scale Ankara print. Pairs with jeans or a plain skirt.",
+    variants: ["S", "M", "L", "XL"],
     inStock: true,
   },
   {
@@ -111,6 +118,7 @@ export const products: Product[] = [
     detail: "Free size, adjustable tie",
     description:
       "Adjustable wrap skirt with a wide waist tie. One size fits most, so no measurements needed.",
+    variants: ["Free size"],
     inStock: false,
   },
   {
