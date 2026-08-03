@@ -37,9 +37,15 @@ export const Route = createFileRoute("/shop/$slug")({
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
-  const message = `Hi ${site.name}, I'd like to order: ${product.name} (${formatNaira(
-    product.price,
-  )}) — ${product.detail}.`;
+  const options = product.variants ?? [product.detail];
+  const [variant, setVariant] = useState(options[0]!);
+  const message = orderMessage({
+    name: product.name,
+    price: product.price,
+    variant,
+    slug: product.slug,
+  });
+
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
