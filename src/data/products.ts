@@ -155,3 +155,12 @@ export function getProduct(slug: string) {
 export function categoryLabel(id: Category) {
   return categories.find((c) => c.id === id)?.label ?? id;
 }
+
+/**
+ * Label used for the variant picker, per category.
+ */
+export function variantLabel(category: Category) {
+  if (category === "fabrics") return "Yardage";
+  if (category === "ready-to-wear") return "Size";
+  return "Option";
+}
