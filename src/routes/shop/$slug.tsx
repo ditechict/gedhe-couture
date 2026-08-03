@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Truck, Clock } from "lucide-react";
-import { categoryLabel, getProduct } from "@/data/products";
+import { categoryLabel, getProduct, variantLabel } from "@/data/products";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
-import { formatNaira, site } from "@/lib/site";
+import { formatNaira, orderMessage, site } from "@/lib/site";
+
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
@@ -35,9 +37,15 @@ export const Route = createFileRoute("/shop/$slug")({
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
-  const message = `Hi ${site.name}, I'd like to order: ${product.name} (${formatNaira(
-    product.price,
-  )}) — ${product.detail}.`;
+  const options: string[] = product.variants ?? [product.detail];
+  const [variant, setVariant] = useState(options[0]!);
+  const message = orderMessage({
+    name: product.name,
+    price: product.price,
+    variant,
+    slug: product.slug,
+  });
+
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
@@ -72,6 +80,32 @@ function ProductDetail() {
           <p className="mt-1 text-sm text-muted-foreground">{product.detail}</p>
 
           <p className="mt-5 text-muted-foreground">{product.description}</p>
+
+          {options.length > 1 && (
+            <fieldset className="mt-6">
+              <legend className="text-sm font-semibold text-foreground">
+                {variantLabel(product.category)}
+              </legend>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {options.map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setVariant(opt)}
+                    aria-pressed={variant === opt}
+                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                      variant === opt
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border text-muted-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+          )}
+
 
           <div className="mt-6 space-y-2 rounded-2xl border border-border bg-card p-4 text-sm">
             <p className="flex items-center gap-2 text-foreground">

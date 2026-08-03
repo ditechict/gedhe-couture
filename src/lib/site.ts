@@ -18,3 +18,21 @@ export function whatsappLink(message?: string) {
 export function formatNaira(amount: number) {
   return `₦${amount.toLocaleString("en-NG")}`;
 }
+
+/** Build a ready-to-send order message with product name, variant and price. */
+export function orderMessage(input: {
+  name: string;
+  price: number;
+  variant?: string;
+  slug?: string;
+}) {
+  const lines = [
+    `Hi ${site.name}, I'd like to order:`,
+    `• Item: ${input.name}`,
+  ];
+  if (input.variant) lines.push(`• Option: ${input.variant}`);
+  lines.push(`• Price: ${formatNaira(input.price)}`);
+  if (input.slug) lines.push(`• Link: ${site.url}/shop/${input.slug}`);
+  lines.push("", "Please confirm availability and payment details.");
+  return lines.join("\n");
+}
