@@ -1,6 +1,15 @@
 import fabricsImg from "@/assets/cat-fabrics.jpg";
 import readyToWearImg from "@/assets/cat-readytowear.jpg";
-import thriftImg from "@/assets/cat-thrift.jpg";
+
+import colourfulDress from "@/assets/IMG_2180.jpg.asset.json";
+import cottonJumpsuit from "@/assets/IMG_2179.jpg.asset.json";
+import fittedDress from "@/assets/IMG_2176.jpg.asset.json";
+import orangeJumpsuit from "@/assets/IMG_2177.jpg.asset.json";
+import pearlKimono from "@/assets/IMG_2173.jpg.asset.json";
+import smockedDress from "@/assets/IMG_2181.jpg.asset.json";
+import chiffonJumpsuit from "@/assets/IMG_2178.jpg.asset.json";
+import chiffonLongDress from "@/assets/IMG_2175.jpg.asset.json";
+import boyfriendJeans from "@/assets/IMG_2174.jpg.asset.json";
 
 export type Category = "fabrics" | "ready-to-wear" | "thrift";
 
@@ -39,119 +48,113 @@ export const categories: {
   {
     id: "thrift",
     label: "Thrift Finds",
-    blurb: "One-of-one secondhand pieces — once it's gone, it's gone.",
-    image: thriftImg,
+    blurb: "One-of-one UK-sized pieces — once it's gone, it's gone.",
+    image: pearlKimono.url,
   },
 ];
 
 /**
- * Placeholder catalogue. Structure matches what real stock will use, so
- * replacing these entries with the owner's products needs no code changes.
+ * Real stock, taken from the owner's own product photos. Prices and UK sizes
+ * are exactly as listed on the photos.
  */
 export const products: Product[] = [
   {
-    slug: "emerald-bloom-wax-print",
-    name: "Emerald Bloom Wax Print",
-    category: "fabrics",
+    slug: "stretchy-kimono-pearls-belt",
+    name: "Stretchy Kimono with Pearls & Belt",
+    category: "thrift",
+    price: 3000,
+    image: pearlKimono.url,
+    detail: "UK 14/16 · one available",
+    description:
+      "Navy stretch kimono scattered with pearl detail, crochet-trim sleeves and a matching tie belt. Full length, wears open or belted. Single piece.",
+    inStock: true,
+  },
+  {
+    slug: "sexy-boyfriend-jeans",
+    name: "Boyfriend Jeans (Distressed)",
+    category: "thrift",
+    price: 3500,
+    image: boyfriendJeans.url,
+    detail: "UK 18 · one available",
+    description:
+      "Mid-blue boyfriend jeans with three distressed knee slashes and a turn-up hem. Relaxed leg, no marks or fading. Single piece.",
+    inStock: true,
+  },
+  {
+    slug: "colourful-chiffon-long-dress",
+    name: "Colourful Chiffon Long Dress",
+    category: "thrift",
+    price: 3000,
+    image: chiffonLongDress.url,
+    detail: "UK 10/12 · one available",
+    description:
+      "Black chiffon maxi in a bright rose and lily print, sheer mesh yoke and a tie waist. Light and easy for owambe or a day out.",
+    inStock: true,
+  },
+  {
+    slug: "full-length-chiffon-jumpsuit",
+    name: "Full Length Chiffon Jumpsuit",
+    category: "thrift",
     price: 2800,
-    image: fabricsImg,
-    detail: "6 yards",
+    image: chiffonJumpsuit.url,
+    detail: "UK 12/14 · one available",
     description:
-      "Deep emerald ground with gold and magenta blooms. Soft hand, holds a pleat well — good for wrap skirts and gowns.",
-    variants: ["2 yards", "4 yards", "6 yards"],
+      "Yellow chiffon jumpsuit in a bold multicoloured medallion print with wide flowing legs and a gathered waist. Statement piece.",
     inStock: true,
   },
   {
-    slug: "marigold-spiral-wax-print",
-    name: "Marigold Spiral Wax Print",
-    category: "fabrics",
-    price: 2500,
-    image: fabricsImg,
-    detail: "6 yards",
-    description:
-      "Warm marigold with navy spirals. A loud print that photographs beautifully in daylight.",
-    variants: ["2 yards", "4 yards", "6 yards"],
-    inStock: true,
-  },
-  {
-    slug: "indigo-medallion-wax-print",
-    name: "Indigo Medallion Wax Print",
-    category: "fabrics",
-    price: 3000,
-    image: fabricsImg,
-    detail: "6 yards",
-    description:
-      "Classic indigo medallion repeat. Versatile enough for men's shirts and women's two-pieces alike.",
-    variants: ["2 yards", "4 yards", "6 yards"],
-    inStock: true,
-  },
-  {
-    slug: "clay-print-two-piece",
-    name: "Clay Print Two-Piece Set",
-    category: "ready-to-wear",
-    price: 3000,
-    image: readyToWearImg,
-    detail: "Sizes S – L",
-    description:
-      "Flutter-sleeve top with a matching relaxed short. Fully lined at the bodice, made in-house.",
-    variants: ["S", "M", "L"],
-    inStock: true,
-  },
-  {
-    slug: "printed-flutter-top",
-    name: "Printed Flutter Top",
-    category: "ready-to-wear",
-    price: 2200,
-    image: readyToWearImg,
-    detail: "Sizes S – XL",
-    description:
-      "Everyday flutter-sleeve top in a small-scale Ankara print. Pairs with jeans or a plain skirt.",
-    variants: ["S", "M", "L", "XL"],
-    inStock: true,
-  },
-  {
-    slug: "wrap-skirt-ankara",
-    name: "Ankara Wrap Skirt",
-    category: "ready-to-wear",
-    price: 2900,
-    image: readyToWearImg,
-    detail: "Free size, adjustable tie",
-    description:
-      "Adjustable wrap skirt with a wide waist tie. One size fits most, so no measurements needed.",
-    variants: ["Free size"],
-    inStock: false,
-  },
-  {
-    slug: "thrift-denim-shirt",
-    name: "Thrift Denim Shirt",
-    category: "thrift",
-    price: 2500,
-    image: thriftImg,
-    detail: "One available · Grade A",
-    description:
-      "Mid-wash denim shirt, no fading or marks. Single piece — first payment confirmed takes it.",
-    inStock: true,
-  },
-  {
-    slug: "thrift-floral-blouse",
-    name: "Thrift Floral Blouse",
-    category: "thrift",
-    price: 1800,
-    image: thriftImg,
-    detail: "One available · Grade A",
-    description:
-      "Cream floral blouse in light crepe. Washed and pressed before dispatch.",
-    inStock: true,
-  },
-  {
-    slug: "thrift-printed-maxi",
-    name: "Thrift Printed Maxi",
+    slug: "smocked-off-shoulder-dress",
+    name: "Smocked Off-Shoulder Dress",
     category: "thrift",
     price: 3000,
-    image: thriftImg,
-    detail: "One available · Grade B",
+    image: smockedDress.url,
+    detail: "UK 18/20 · one available",
     description:
-      "Full-length printed maxi with a small mend at the hem, barely visible when worn.",
+      "Tropical green and blue floral print on black, with a smocked off-shoulder bodice that stretches to fit and a full skirt.",
+    inStock: true,
+  },
+  {
+    slug: "orange-side-button-jumpsuit",
+    name: "Orange Side Button Jumpsuit",
+    category: "thrift",
+    price: 3000,
+    image: orangeJumpsuit.url,
+    detail: "UK 12 · one available",
+    description:
+      "Burnt-orange dungaree-style jumpsuit with wide culotte legs and wooden buttons down both sides. Clean, no marks.",
+    inStock: true,
+  },
+  {
+    slug: "lovely-cotton-jumpsuit",
+    name: "Lovely Cotton Jumpsuit",
+    category: "thrift",
+    price: 3000,
+    image: cottonJumpsuit.url,
+    detail: "UK 12 · one available",
+    description:
+      "Breathable cotton jumpsuit in a small ditsy print with plaited shoulder straps, elastic waist and wide legs. Easy everyday wear.",
+    inStock: true,
+  },
+  {
+    slug: "stretchy-colourful-dress",
+    name: "Stretchy Colourful Lace-Yoke Dress",
+    category: "thrift",
+    price: 3000,
+    image: colourfulDress.url,
+    detail: "UK 16 (14 can wear) · one available",
+    description:
+      "Black textured dress with white polka dots and roses, black lace yoke and a fitted waist with a flared skirt. Stretchy fit.",
+    inStock: true,
+  },
+  {
+    slug: "solid-stretchy-fitted-dress",
+    name: "Solid Stretchy Fitted Dress",
+    category: "thrift",
+    price: 3000,
+    image: fittedDress.url,
+    detail: "UK 18/20 · one available",
+    description:
+      "Nude stretch bodycon dress with a contrast black velvet collar and half sleeves. Office or dinner, dresses up easily.",
     inStock: true,
   },
 ];
