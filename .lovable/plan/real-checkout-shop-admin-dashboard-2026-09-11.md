@@ -17,12 +17,12 @@ Move from "message us on WhatsApp" to a real online checkout, and give you a pri
 
 ## Payments
 
-Currency: naira for Nigerian customers is the default; a UK/pounds option can be added once you tell me which entity should receive that money.
+Currency: should be determined by user location; UK/pounds option for all Europe region, Nairafor all Afircan region, and USD for all other regions.
 
 Two possible providers, and this is the one decision I need from you:
 
 - **Paystack** — best fit for Nigerian customers: cards, bank transfer, USSD, plus Apple Pay. Payouts to a Nigerian bank account. Needs your Paystack account (free to open) and its secret key.
-- **Stripe** — best fit if the UK company takes the money: cards, Apple Pay, Google Pay, strong international support. Weaker for Nigerian bank transfer/USSD.
+- **Stripe** — best fit if the American and UK company takes the money: cards, Apple Pay, Google Pay, strong international support. Weaker for Nigerian bank transfer/USSD.
 
 I'd recommend Paystack first, since most of your buyers are in Nigeria, and adding Stripe later for UK orders. Either way you'll need to open the account and paste one secret key into a secure form I'll open for you — I never see it.
 
